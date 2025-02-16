@@ -6,6 +6,7 @@ public class InventoryManagmentApp {
         Scanner input = new Scanner(System.in);
         try (input) {
             InventoryManagementSystem ims = new InventoryManagementSystem();
+            int choice;
             do {
                 System.out.println("*********************************************");
                 System.out.println("Welcome to Inventory Management System \nby Aelfric Ezekiel Amor");
@@ -17,13 +18,14 @@ public class InventoryManagmentApp {
                 System.out.println("3. Exit");
     
                 System.out.print("Enter your choice: ");
-                int choice = input.nextInt();
+                choice = input.nextInt();
     
                 switch (choice) {
                     case 1 -> {
                         System.out.print("Enter product name: ");
                         String name = input.next();
-                        System.out.println("Enter product price: ");
+                        input.nextLine();
+                        System.out.print("Enter product price: ");
                         int price = input.nextInt();
                         ims.addProduct(name, price);
                         break;
@@ -41,7 +43,7 @@ public class InventoryManagmentApp {
                         break;
                     }
                 }
-            } while (true);
+            } while (choice != 3);
             
         } catch (Exception e) {
             System.out.println("An error occured: " + e.getMessage());
